@@ -52,6 +52,7 @@ Follow these steps to set up the project on your local machine:
 3. Create a virtual environment:
    ```bash
   python3 -m venv venv
+  
 4. Activate virtual environment:
    ```bash  
   source venv/bin/activate    
