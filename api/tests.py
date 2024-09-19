@@ -21,15 +21,14 @@ class InvestmentAccountTests(APITestCase):
         self.account1 = InvestmentAccount.objects.create(name='Account 1')
         self.account2 = InvestmentAccount.objects.create(name='Account 2')
         self.account3 = InvestmentAccount.objects.create(name='Account 3')
-        self.account4 = InvestmentAccount.objects.create(name='Account 4')
+ 
 
         # Assign permissions
         UserAccountPermission.objects.create(user=self.user1, account=self.account1, permission=UserAccountPermission.VIEW_ONLY)
         UserAccountPermission.objects.create(user=self.user1, account=self.account2, permission=UserAccountPermission.CRUD)
         UserAccountPermission.objects.create(user=self.user1, account=self.account3, permission=UserAccountPermission.POST_ONLY)
-        UserAccountPermission.objects.create(user=self.user1, account=self.account4, permission=UserAccountPermission.CRUD)
-        UserAccountPermission.objects.create(user=self.user2, account=self.account2, permission=UserAccountPermission.VIEW_ONLY)
-        UserAccountPermission.objects.create(user=self.user2, account=self.account4, permission=UserAccountPermission.CRUD)
+        UserAccountPermission.objects.create(user=self.user2, account=self.account2, permission=UserAccountPermission.CRUD)
+ 
 
         # Create transactions for testing
         Transaction.objects.create(
@@ -63,7 +62,7 @@ class InvestmentAccountTests(APITestCase):
         url = reverse('investmentaccount-list')
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 4)  # user1 has access to all 4 accounts
+        self.assertEqual(len(response.data), 3)  # user1 has access to all 4 accounts
 
     def test_account_has_multiple_users(self):
         """Test that an account can have multiple users."""
