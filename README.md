@@ -1,7 +1,6 @@
 # Investment_Account_API
 A Django Rest Framework (DRF) API for managing investment accounts that allows more than one users to belong to an investment account it should also allow a user to belong to more than one investment account and set permissions for these Accounts. 
 # Django Project Setup
-
 This repository contains a  Django Rest Framework (DRF) API. This README will guide you through the setup process, provide an overview of the structure, and outline key features.
 
 ## Table of Contents
